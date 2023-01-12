@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Directory">
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/tabView"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal"
+        android:layout_margin="16dp">
+
+        <TextView
+            android:id="@+id/cuisineTv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Cuisine"
+            android:textSize="16dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/KKTv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Location"
+            android:textSize="16dp"
+            android:textColor="@color/white" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <!--  cuisinetab  -->
+    <RelativeLayout
+        android:id="@+id/cuisineRl"
+        android:layout_below="@+id/tabView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="175dp"
+                android:contentDescription="western"
+                android:clickable="true"
+                android:onClick="filteredRestaurantRV"
+                android:tag="western">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="0dp"
+                    android:layout_height="135dp"
+
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/container_bg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <ImageView
+                    android:id="@+id/westernCusisineIv"
+                    android:layout_width="120dp"
+                    android:layout_height="150dp"
+                    android:layout_marginStart="28dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/western_cuisine"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.48"
+                    app:layout_editor_absoluteX="46dp"
+                    app:layout_editor_absoluteY="40dp" />
+
+                <TextView
+                    android:id="@+id/westernCusisineTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="52dp"
+                    android:text="Western Cuisine"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/westernCusisineIv"
+                    app:layout_constraintTop_toTopOf="@+id/imageView3" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="175dp"
+                android:contentDescription="local"
+                android:clickable="true"
+                android:onClick="filteredRestaurantRV"
+                android:tag="local">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="0dp"
+                    android:layout_height="135dp"
+
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/container_bg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <ImageView
+                    android:id="@+id/localCusisineIv"
+                    android:layout_width="120dp"
+                    android:layout_height="150dp"
+                    android:layout_marginStart="28dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/local_cuisine"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.48"
+                    app:layout_editor_absoluteX="46dp"
+                    app:layout_editor_absoluteY="40dp" />
+
+                <TextView
+                    android:id="@+id/nearMeNameTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="52dp"
+                    android:text="Local Cuisine"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/localCusisineIv"
+                    app:layout_constraintTop_toTopOf="@+id/imageView2" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="175dp"
+                android:contentDescription="mamak"
+                android:clickable="true"
+                android:onClick="filteredRestaurantRV"
+                android:tag="mamak">
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="0dp"
+                    android:layout_height="135dp"
+
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/container_bg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <ImageView
+                    android:id="@+id/mamakCusisineIv"
+                    android:layout_width="120dp"
+                    android:layout_height="150dp"
+                    android:layout_marginStart="28dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/mamak_cuisine"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.48"
+                    app:layout_editor_absoluteX="46dp"
+                    app:layout_editor_absoluteY="40dp" />
+
+                <TextView
+                    android:id="@+id/mamakCusisineTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="52dp"
+                    android:text="Mamak Foods"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/mamakCusisineIv"
+                    app:layout_constraintTop_toTopOf="@+id/imageView4" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="175dp"
+                android:contentDescription="middleEastern"
+                android:clickable="true"
+                android:onClick="filteredRestaurantRV"
+                android:tag="middleEastern">
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="0dp"
+                    android:layout_height="135dp"
+
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/container_bg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <ImageView
+                    android:id="@+id/midEastCusisineIv"
+                    android:layout_width="120dp"
+                    android:layout_height="150dp"
+                    android:layout_marginStart="28dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/middle_eastern"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.48"
+                    app:layout_editor_absoluteX="46dp"
+                    app:layout_editor_absoluteY="40dp" />
+
+                <TextView
+                    android:id="@+id/midEastCusisineTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="52dp"
+                    android:text="Middle Eastern"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/midEastCusisineIv"
+                    app:layout_constraintTop_toTopOf="@+id/imageView5" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+
+
+
+    </RelativeLayout>
+
+    <!--  kktab  -->
+    <RelativeLayout
+        android:id="@+id/KKRl"
+        android:layout_below="@+id/tabView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/firstLayer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/kk3"
+                    android:layout_width="136dp"
+                    android:layout_height="136dp"
+                    android:background="@drawable/kk3"
+                    android:contentDescription="kk3"
+                    android:clickable="true"
+                    android:onClick="filteredRestaurantRV"
+                    android:tag="3"/>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/kk4"
+                    android:layout_width="136dp"
+                    android:layout_height="136dp"
+                    android:background="@drawable/kk4"
+                    android:contentDescription="kk4"
+                    android:clickable="true"
+                    android:onClick="filteredRestaurantRV"
+                    android:tag="4"/>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/kk5"
+                    android:layout_width="136dp"
+                    android:layout_height="136dp"
+                    android:background="@drawable/kk5"
+                    android:contentDescription="kk5"
+                    android:clickable="true"
+                    android:onClick="filteredRestaurantRV"
+                    android:tag="5"/>
+
+            </LinearLayout>
+            <LinearLayout
+
+                android:layout_toStartOf="@id/firstLayer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/kk7"
+                    android:layout_width="136dp"
+                    android:layout_height="136dp"
+                    android:background="@drawable/kk7"
+                    android:clickable="true"
+                    android:contentDescription="kk7"
+                    android:onClick="filteredRestaurantRV"
+                    android:tag="7" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/kk8"
+                    android:layout_width="136dp"
+                    android:layout_height="136dp"
+                    android:background="@drawable/kk8"
+                    android:contentDescription="kk8"
+                    android:clickable="true"
+                    android:onClick="filteredRestaurantRV"
+                    android:tag="8"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/kk11"
+                    android:layout_width="136dp"
+                    android:layout_height="136dp"
+                    android:background="@drawable/kk11"
+                    android:contentDescription="kk11"
+                    android:clickable="true"
+                    android:onClick="filteredRestaurantRV"
+                    android:tag="11"/>
+
+            </LinearLayout>
+            <LinearLayout
+
+                android:layout_toStartOf="@id/firstLayer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/kk12"
+                    android:layout_width="136dp"
+                    android:layout_height="136dp"
+                    android:background="@drawable/kk12"
+                    android:clickable="true"
+                    android:contentDescription="kk12"
+                    android:onClick="filteredRestaurantRV"
+                    android:tag="12" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/kps"
+                    android:layout_width="136dp"
+                    android:layout_height="136dp"
+                    android:background="@drawable/kps"
+                    android:contentDescription="kps"
+                    android:clickable="true"
+                    android:onClick="filteredRestaurantRV"
+                    android:tag="kps"/>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

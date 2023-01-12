@@ -25,12 +25,13 @@ public class Login extends AppCompatActivity {
 
     EditText mEmail, mPassword;
     Button mLoginBtn;
-    TextView mRegisterBtn;
+    TextView mRegisterBtn, forgor;
     FirebaseAuth fAuth;
     ProgressBar progressBar;
     boolean doubleBackToExitPressedOnce = false;
 
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,10 +40,11 @@ public class Login extends AppCompatActivity {
 
         fAuth=FirebaseAuth.getInstance();
 
-        mEmail=findViewById(R.id.Email);
+        mEmail=findViewById(R.id.emailTv);
         mPassword=findViewById(R.id.password);
-        mLoginBtn=findViewById(R.id.loginBtn);
-        mRegisterBtn=findViewById(R.id.createText);
+        mLoginBtn=findViewById(R.id.submitBtn);
+        mRegisterBtn=findViewById(R.id.loginText);
+        forgor=findViewById(R.id.forgor);
 
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +86,13 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), Register.class));
+            }
+        });
+
+        forgor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), ForgotPassword.class));
             }
         });
 

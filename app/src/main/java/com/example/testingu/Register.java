@@ -3,7 +3,6 @@ package com.example.testingu;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,7 +16,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.common.internal.Objects;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -57,10 +55,10 @@ public class Register extends AppCompatActivity {
         getSupportActionBar().hide();
 
         mFullName=findViewById(R.id.fullName);
-        mEmail=findViewById(R.id.Email);
+        mEmail=findViewById(R.id.emailTv);
         mPassword=findViewById(R.id.password);
         mRegisterBtn=findViewById(R.id.registerBtn);
-        mLoginBtn=findViewById(R.id.createText);
+        mLoginBtn=findViewById(R.id.loginText);
 
 
 

@@ -3,6 +3,7 @@ package com.example.testingu;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -22,6 +23,9 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -55,8 +59,8 @@ public class Register extends AppCompatActivity {
         getSupportActionBar().hide();
 
         mFullName=findViewById(R.id.fullName);
-        mEmail=findViewById(R.id.emailTv);
-        mPassword=findViewById(R.id.password);
+        mEmail=findViewById(R.id.emailEt);
+        mPassword=findViewById(R.id.nameEt);
         mRegisterBtn=findViewById(R.id.registerBtn);
         mLoginBtn=findViewById(R.id.loginText);
 
@@ -110,6 +114,10 @@ public class Register extends AppCompatActivity {
                                     Log.d("TAG", "onFailure: "+e.toString());
                                 }
                             });
+                            FirebaseUser u = fAuth.getCurrentUser();
+                            u.updateEmail(email);
+                            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(fullName).build();
+                            u.updateProfile(profileUpdates);
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         }else
                             //error handling
@@ -127,6 +135,8 @@ public class Register extends AppCompatActivity {
             }
         });
     }
+
+
     @Override
     public void onBackPressed() {
         if (doubleBackToExitPressedOnce) {
@@ -145,4 +155,5 @@ public class Register extends AppCompatActivity {
             }
         }, 2000);
     }
+
 }

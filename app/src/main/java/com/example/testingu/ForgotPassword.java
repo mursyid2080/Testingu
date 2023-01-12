@@ -36,8 +36,8 @@ public class ForgotPassword extends AppCompatActivity {
         fAuth=FirebaseAuth.getInstance();
         fStore=FirebaseFirestore.getInstance();
 
-        emailEt=findViewById(R.id.emailTv);
-        submitBtn=findViewById(R.id.submitBtn);
+        emailEt=findViewById(R.id.emailEt);
+        submitBtn=findViewById(R.id.saveBtn);
         loginTv=findViewById(R.id.loginText);
 
         submitBtn.setOnClickListener(new View.OnClickListener() {

@@ -179,7 +179,7 @@ public class RestaurantDetails extends AppCompatActivity {
                 dialog.show();
 
 
-                //somewhere else pass address to openmap()
+
                 mFusedLocationClient= LocationServices.getFusedLocationProviderClient(RestaurantDetails.this);
                 mSettingClient=LocationServices.getSettingsClient(RestaurantDetails.this);
 

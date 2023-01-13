@@ -26,6 +26,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -75,6 +76,7 @@ public class RestaurantDetails extends AppCompatActivity {
     ImageButton mapBtn, favBtn, filterMenuBtn;
     private EditText searchMenuEt;
     private RecyclerView menuRv;
+    private RatingBar rating;
 
     private String restaurantId, userID;
     String myLatitude,myLongitude;
@@ -106,6 +108,7 @@ public class RestaurantDetails extends AppCompatActivity {
     private Location mCurrentLocation;
     private boolean mRequestingLocationUpdates=false;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,13 +116,13 @@ public class RestaurantDetails extends AppCompatActivity {
 
         fAuth=FirebaseAuth.getInstance();
 
-
         //init ui views
         restaurantIv=findViewById(R.id.nearMeIv);
         restaurantNameTv=findViewById(R.id.restaurantDetailsNameTv);
         restaurantAddressTv=findViewById(R.id.restaurantDetailsAddressTv);
         mapBtn=findViewById(R.id.mapBtn);
         favBtn=findViewById(R.id.favBtn);
+        rating=findViewById(R.id.detailsRatingBar);
 
         searchMenuEt=findViewById(R.id.searchMenuEt);
         menuRv=findViewById(R.id.menuRv);
@@ -357,6 +360,8 @@ public class RestaurantDetails extends AppCompatActivity {
                 restaurantLatitude=restaurant.getLatitude();
                 restaurantLongitude=restaurant.getLongitude();
 
+                rating.setRating((float)3.5);
+
                 restaurantNameTv.setText(restaurantName);
                 restaurantAddressTv.setText(restaurantAddress);
                 try{
@@ -364,6 +369,7 @@ public class RestaurantDetails extends AppCompatActivity {
                 }catch (Exception e){
                     restaurantIv.setImageResource(R.drawable.ic_baseline_store_mall_directory_24);
                 }
+
 
             }
         });

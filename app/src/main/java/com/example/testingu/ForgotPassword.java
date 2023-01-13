@@ -25,6 +25,7 @@ public class ForgotPassword extends AppCompatActivity {
     private TextView loginTv;
     private FirebaseAuth fAuth;
     private FirebaseFirestore fStore;
+    private String email;
 
 
     @Override
@@ -40,13 +41,17 @@ public class ForgotPassword extends AppCompatActivity {
         submitBtn=findViewById(R.id.saveBtn);
         loginTv=findViewById(R.id.loginText);
 
+        email=emailEt.getText().toString();
+
         submitBtn.setOnClickListener(new View.OnClickListener() {
-            String email=emailEt.getText().toString();
+
+
             @Override
             public void onClick(View view) {
+                email=emailEt.getText().toString();
                 if(TextUtils.isEmpty(email)){
-                    Toast.makeText(ForgotPassword.this, "Please enter your registerd email", Toast.LENGTH_SHORT).show();
-                    emailEt.setError("Email is requiered");
+                    Toast.makeText(ForgotPassword.this, "Please enter your registered email", Toast.LENGTH_SHORT).show();
+                    emailEt.setError("Email is required");
                     emailEt.requestFocus();
                 }
                 else if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
@@ -55,7 +60,7 @@ public class ForgotPassword extends AppCompatActivity {
                     emailEt.requestFocus();
                 }
                 else{
-                    resetPasswrod(email);
+                    resetPassword(email);
                 }
 
             }
@@ -69,7 +74,7 @@ public class ForgotPassword extends AppCompatActivity {
         });
 
     }
-    private void resetPasswrod(String email){
+    private void resetPassword(String email){
         fAuth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

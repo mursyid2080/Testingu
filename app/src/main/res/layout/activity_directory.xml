@@ -201,7 +201,7 @@
                 android:contentDescription="middleEastern"
                 android:clickable="true"
                 android:onClick="filteredRestaurantRV"
-                android:tag="middleEastern">
+                android:tag="mid">
 
                 <ImageView
                     android:id="@+id/imageView5"
